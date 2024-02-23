@@ -1,0 +1,92 @@
+##################################################
+Habbit 1: Always use if name == main, in your module.py (functions.py), and your main.py
+#module.py
+def func1() -> None:
+    print('Connecting to internet...')
+    time.sleep(3)
+    print('You are connected')
+
+if __name__ == '__main__':
+    connect()
+
+#main.py
+from module import func1
+
+if __name__ == '__main__':
+    connect()
+
+##################################################
+Habbit 2: main(): define a main() function to group the functions you want to run
+#main.py
+def bye() -> None:
+    print('Bye, world!')
+
+def great() -> None:
+    print('Hello, world!')
+
+def main() -> None:
+    great()
+    bye()
+
+if __name__ == '__main__':
+    main()
+
+##################################################
+Habbit 3: big functions: use small functions to make your code orgnized. This will seperate the concerns, keep it simple and REUSABLE!
+#main.py
+def is_an_adult(age: int, has_id:bool) -> bool:
+    return age>=21 and has_id
+
+def is_bob(name: str) -> bool:
+    return name.lower() == 'bob'
+
+def enter_club(name:str, age:int, has_id:bool) -> None:
+    if is_bob(name):
+        print('get out, Bob')
+        return
+    if is_an_adult(age, has_id):
+        print('Welcome!')
+    else:
+        print('Sorry, you may not enter the club.')
+
+def main() -> None:
+    enter_club('Bob', 29, has_id=True)
+    enter_club('James', 29, has_id=False)
+    enter_club('Mario', 20, has_id=True)
+
+if __name__ == '__main__':
+    main()
+##################################################
+Habbit 4: Always notate datatypes (pip install mypy helps)
+#example 1
+number: int = 10 (not number = 10)
+
+#example 2
+#bad example!
+def upper_everything(elements):
+    return[elements.upper() for element in elements]
+#good example
+def upper_everything(elements: list[str]) -> list[str]:
+    return[elements.upper() for element in elements]
+
+#example 3
+sample: list[int] = ['a', 1, 'b', 2]
+after installing mypy, pycharm will recognize the error before running the code
+##################################################
+Habbit 5: Use list comprehensions
+#main.py
+people: list[str] = ['James', 'Charlotte', 'Stephen', 'Mario', 'Josie']
+
+#Dont use following codes:
+#long_names: list[str] = []
+#for person in people:
+#    if len(people)>7:
+#        long_names.append(person)
+
+#instead, use the list comprehension:
+long_names: list[str] = [p for p in people if len(p)>7]
+
+print(f'Long names: {long_names}')
+##################################################
+Habbit 3: main()
+
