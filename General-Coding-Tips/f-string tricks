@@ -1,0 +1,61 @@
+###########################################################
+#Trick 1
+n: int = 10000000
+print(f'{n:_}')
+print(f'{n:,}')
+
+###########################################################
+#Trick 2
+var: str = 'var'
+
+#add space before var
+print(f'{var:>20}:')
+#                    var:
+
+#add space after var
+print(f'{var:<20}:')
+#var                    :
+
+#add 20 space and put var in the middle
+print(f'{var:^20}:')
+#          var          :
+
+#You can also do other symbols:
+print(f'{var:#>20}:')
+print(f'{var:_>20}:')
+print(f'{var:|>20}:')
+
+###########################################################
+#Trick 3 datetime
+from datetime import datetime
+now: datetime = datetime.now()
+
+print(f'{now:%d.%m.%y %H.%M.%S}')
+print(f'{now:%c}') #print local format
+# Fri Feb 23 12:53:15 2024
+print(f'{now:%I%p}') #print 12PM
+
+###########################################################
+#Trick 4 decimals
+n: float =123456.34567
+print(f'{n:.2f}') # 123456.35
+print(f'{n:.0f}') # 123456
+print(f'{n:,.2f}') # 123,456.35
+
+###########################################################
+#Trick 5 use = in your print
+# bad example
+a: int = 5
+b: int = 10
+print(f'a + b = {a+b}')
+# a + b = 15
+
+# good example:
+a: int = 10
+b: int = 100
+my_var: str = 'Bob says hi'
+
+print(f'{a + b = }')
+# a + b = 110
+print(f'{my_var = }')
+# my_var = 'Bob says hi'
