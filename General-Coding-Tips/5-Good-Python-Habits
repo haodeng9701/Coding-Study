@@ -89,6 +89,9 @@ people: list[str] = ['James', 'Charlotte', 'Stephen', 'Mario', 'Josie']
 long_names: list[str] = [p for p in people if len(p)>7]
 
 print(f'Long names: {long_names}')
-##################################################
-Habbit 3: main()
+#
+#
+#
+#
+
 
