@@ -1,0 +1,11 @@
+n: int = 100000000 #bad bad
+
+# good
+n: int = 100_000_000
+n: float = 1e8
+
+#when you display
+print(n) #not good
+# good
+print(f'{n:_}')
+print(f'{n:,}')
